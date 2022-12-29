@@ -3,6 +3,16 @@
     <div class="text-gray-900 text-xl">Edit Profile</div>
     <div class="bg-green-500 w-full h-1"></div>
 
+    <CropperModal
+        v-if="showModal"
+        :min-aspect-ratio-prop="{width:8, height:8}"
+        :max-aspect-ratio-prop="{width:8, height:8}"
+        @croppedImageData="setCroppedImageData"
+        @showModal="showModal = false"
+    />
+
+    {{ image }}
+
     <div class="flex flex-wrap mt-4 m-6">
       <div class="w-full md:w-1/2 px-3">
         <TextInput
@@ -41,6 +51,16 @@
         <DisplayCropperButton
             label="Profile Image"
             btn-text="Update Profile Image"
+            @showModal="showModal = true"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-wrap mt-4 m-6">
+      <div class="w-full md:w-1/2 px-3">
+        <CroppedImage
+            label="Cropped Image"
+            :image="image"
         />
       </div>
     </div>
@@ -72,11 +92,22 @@ import {ref} from "vue";
 import DisplayCropperButton from "@/components/global/DisplayCropperButton";
 import TextArea from "@/components/global/TextArea";
 import SubmitFormButton from "@/components/global/SubmitFormButton";
+import CropperModal from "@/components/global/CropperModal";
+import CroppedImage from "@/components/global/CroppedImage";
+
+let showModal = ref(false)
 
 let firstName = ref(null)
 let lastName = ref(null)
 let location = ref(null)
 let description = ref(null)
+// let imageData = ref(null)
+let image = ref(null)
+
+const setCroppedImageData = data => {
+  // imageData = data
+  image.value = data.imageUrl
+}
 </script>
 
 <style lang="scss">
