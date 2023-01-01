@@ -5,6 +5,8 @@ import LoginView from '../views/LoginView.vue'
 import AccountView from "@/views/account/AccountView";
 import ProfileSection from "@/views/account/ProfileSection";
 import EditProfile from "@/views/account/EditProfile";
+import AddSong from "@/views/account/AddSong";
+import DeleteSong from "@/views/account/DeleteSong";
 
 const routes = [
   {
@@ -35,6 +37,16 @@ const routes = [
         path: 'edit-profile',
         name: 'EditProfile',
         component: EditProfile,
+      },
+      {
+        path: 'add-song',
+        name: 'AddSong',
+        component: AddSong,
+      },
+      {
+        path: 'delete-song',
+        name: 'DeleteSong',
+        component: DeleteSong,
       }
     ]
   },
