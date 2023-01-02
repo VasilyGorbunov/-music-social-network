@@ -7,6 +7,8 @@ import ProfileSection from "@/views/account/ProfileSection";
 import EditProfile from "@/views/account/EditProfile";
 import AddSong from "@/views/account/AddSong";
 import DeleteSong from "@/views/account/DeleteSong";
+import AddYoutubeVideo from "@/views/account/AddYoutubeVideo";
+import DeleteYoutubeVideo from "@/views/account/DeleteYoutubeVideo";
 
 const routes = [
   {
@@ -47,6 +49,16 @@ const routes = [
         path: 'delete-song',
         name: 'DeleteSong',
         component: DeleteSong,
+      },
+      {
+        path: 'add-youtube-video',
+        name: 'AddYoutubeVideo',
+        component: AddYoutubeVideo,
+      },
+      {
+        path: 'delete-youtube-video',
+        name: 'DeleteYoutubeVideo',
+        component: DeleteYoutubeVideo,
       }
     ]
   },
