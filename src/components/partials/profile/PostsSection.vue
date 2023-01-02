@@ -52,6 +52,7 @@
 
 <script setup>
 
+import RouterLinkButton from "@/components/global/RouterLinkButton";
 </script>
 
 <style scoped>
