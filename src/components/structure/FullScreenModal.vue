@@ -12,20 +12,28 @@
       <div class="my-auto fixed border-white w-80 pt-16">
         <p class="text-2xl text-center text-white font-bold">Menu</p>
 
-          <RouterLinkButton
-              class="w-full text-gray-100 text-center text-lg mt-4"
-              btn-text="Profile"
-              color="green"
-              url="/account/profile"
-          />
+        <RouterLinkButton
+            @click="open = !open"
+            class="w-full text-gray-100 text-center text-lg mt-4"
+            btn-text="Profile"
+            color="green"
+            url="/account/profile"
+        />
 
+        <RouterLinkButton
+            @click="open = !open"
+            class="w-full text-gray-100 text-center text-lg mt-4"
+            btn-text="Posts"
+            color="green"
+            url="/account/posts"
+        />
 
-          <RouterLinkButton
-              @click="open = !open"
-              class="w-full text-gray-100 text-center text-lg mt-4"
-              btn-text="Close"
-              color="red"
-          />
+        <RouterLinkButton
+            @click="open = !open"
+            class="w-full text-gray-100 text-center text-lg mt-4"
+            btn-text="Close"
+            color="red"
+        />
 
       </div>
     </div>
@@ -33,10 +41,10 @@
 </template>
 
 <script setup>
-  import {ref} from "vue";
-  import RouterLinkButton from "@/components/global/RouterLinkButton";
+import {ref} from "vue";
+import RouterLinkButton from "@/components/global/RouterLinkButton";
 
-  let open = ref(false)
+let open = ref(false)
 </script>
 
 <style scoped>

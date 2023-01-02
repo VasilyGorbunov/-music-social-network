@@ -11,6 +11,8 @@ import AddYoutubeVideo from "@/views/account/AddYoutubeVideo";
 import DeleteYoutubeVideo from "@/views/account/DeleteYoutubeVideo";
 import CreatePost from "@/views/account/CreatePost";
 import EditPost from "@/views/account/EditPost";
+import PostsSection from "@/views/account/PostsSection";
+import PostById from "@/views/account/PostById";
 
 const routes = [
   {
@@ -71,6 +73,16 @@ const routes = [
         path: 'edit-post',
         name: 'EditPost',
         component: EditPost,
+      },
+      {
+        path: 'posts',
+        name: 'PostsSection',
+        component: PostsSection,
+      },
+      {
+        path: 'post-by-id',
+        name: 'PostById',
+        component: PostById,
       }
     ]
   },
