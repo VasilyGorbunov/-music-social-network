@@ -12,7 +12,7 @@
                 placeholder="John"
                 v-model:input="email"
                 input-type="text"
-                error="This is a test error"
+                :error="errors.email ? errors.email[0] : ''"
             />
           </div>
           <div class="mb-4">
@@ -22,11 +22,15 @@
                 placeholder="password123"
                 v-model:input="password"
                 input-type="password"
-                error="This is a test error"
+                :error="errors.password ? errors.password[0] : ''"
             />
           </div>
-          <button type="submit" class="block w-full bg-green-500 text-white rounded-sm py-3 text-sm tracking-wide">
-            Register
+          <button
+              type="submit"
+              class="block w-full bg-green-500 text-white rounded-sm py-3 text-sm tracking-wide"
+              @click="login"
+          >
+            Login
           </button>
         </div>
 
@@ -44,9 +48,25 @@
 <script setup>
 import TextInput from "@/components/global/TextInput";
 import {ref} from "vue";
+import axios from "axios";
 
+let errors = ref([])
 let email = ref(null)
 let password = ref(null)
+
+const login = async () => {
+  errors.value = []
+
+  try {
+    let res = await axios.post('http://localhost:8000/api/login', {
+      email: email.value,
+      password: password.value
+    })
+    console.log(res)
+  } catch (err) {
+    errors.value = err.response.data.errors
+  }
+}
 </script>
 
 <style>
