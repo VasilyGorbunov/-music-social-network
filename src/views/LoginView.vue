@@ -7,9 +7,9 @@
 
           <div class="mb-4">
             <TextInput
-                label="First Name"
+                label="Email"
                 :label-color="false"
-                placeholder="John"
+                placeholder="user@app.com"
                 v-model:input="email"
                 input-type="text"
                 :error="errors.email ? errors.email[0] : ''"
@@ -72,6 +72,3 @@ const login = async () => {
   }
 }
 </script>
-
-<style>
-</style>
