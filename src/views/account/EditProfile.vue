@@ -11,8 +11,6 @@
         @showModal="showModal = false"
     />
 
-    {{ image }}
-
     <div class="flex flex-wrap mt-4 m-6">
       <div class="w-full md:w-1/2 px-3">
         <TextInput
@@ -59,7 +57,7 @@
       <div class="w-full md:w-1/2 px-3">
         <CroppedImage
             label="Cropped Image"
-            :image="'http://localhost:8000/images/users/' + image"
+            :image="image"
         />
       </div>
     </div>
@@ -143,7 +141,7 @@ const updateUser = async () => {
   }
 
   try {
-    await axios.post(`users/${userStore.id}?_method=PUT`, data)
+    await axios.post(`api/users/${userStore.id}?_method=PUT`, data)
     await userStore.fetchUser()
     router.push('/account/profile')
   } catch (err) {
