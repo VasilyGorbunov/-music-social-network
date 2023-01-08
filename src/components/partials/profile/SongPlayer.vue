@@ -16,7 +16,6 @@ let songsList = []
 
 onMounted(() => {
   mapSongs()
-  thePlayer()
 })
 
 const mapSongs = () => {
@@ -31,6 +30,8 @@ const mapSongs = () => {
   for (let i = 0; i < newSongs.length; i++) {
     songsList.push(newSongs[i])
   }
+
+  thePlayer()
 }
 
 const thePlayer = () => {
